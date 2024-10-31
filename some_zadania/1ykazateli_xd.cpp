@@ -1,5 +1,6 @@
 #include <iostream>
 
+//https://metanit.com/cpp/practice/8.php
 int main()
 {
     int f[20] = {1};
