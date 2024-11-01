@@ -1,19 +1,14 @@
 #include <iostream>
+using namespace std;
+
+auto print(auto a, auto b)
+{
+    cout << a + b << endl;
+
+    return a + b;
+}
 
 int main()
 {
-    int f[20] = {1};
-
-    for (unsigned i = 1; i < std::size(f); i++)
-    {
-        *(f+i) = *(f+i-1) + 2;
-    }
-
-    for (unsigned i = std::size(f)-1; i >= 0; i--)
-    {
-        if (i % 5 == 0 && i != 0){
-            std::cout << std::endl;
-        }
-        std::cout << *(f+i) << " ";
-    }
+    cout << print("a",8) << endl;
 }
