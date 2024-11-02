@@ -1,14 +1,45 @@
 #include <iostream>
 using namespace std;
 
-auto print(auto a, auto b)
+int* calculate(int* a, int* b, char symbole)
 {
-    cout << a + b << endl;
-
-    return a + b;
+    int* result = new int(0);
+    if (symbole == '+'){
+        cout << "+" << endl;
+        *result = *a + *b;
+    }
+    else if (symbole == '-'){
+        cout << "-" << endl;
+        *result = *a - *b;
+    }
+    else if (symbole == '*'){
+        cout << "*" << endl;        
+        *result = *a * *b;
+    }
+    else if (symbole == '/'){
+        cout << "/" << endl;
+        *result = *a / *b;
+    }
+    return result;
 }
 
-int main()
+int& max_link(int& a, int& b)
 {
-    cout << print("a",8) << endl;
+    if (a > b) 
+        return a;
+    else
+        return b;
+}
+
+int* max(int *a, int *b){
+    return b;
+}
+
+int main(int args, char* argv[])
+{
+    int a = 0;
+    int b = 4;
+    cout << *calculate(&a,&b,'*') << endl;
+    cout << max_link(a,b) << endl;
+    cout << *max(&a, &b) << endl;
 }
