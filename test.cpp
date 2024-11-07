@@ -1,61 +1,21 @@
 #include <iostream>
+#include "function.h"
 using namespace std;
-using Russia = char(*)[10];
-using BinaryOp = int (*)(int, int);
 
-int* calculate(int* a, int* b, char symbole = '0')
-{
-    int* result = new int(0);
-    if (symbole == '+'){
-        cout << "+" << endl;
-        *result = *a + *b;
-    }
-    else if (symbole == '-'){
-        cout << "-" << endl;
-        *result = *a - *b;
-    }
-    else if (symbole == '*'){
-        cout << "*" << endl;        
-        *result = *a * *b;
-    }
-    else if (symbole == '/'){
-        cout << "/" << endl;
-        *result = *a / *b;
-    }
-    return result;
-}
-
-int& max_link(int& a, int& b)
-{
-    if (a > b) 
-        return a;
-    else
-        return b;
-}
-
-int* max(int *a, int *b){
-    return b;
-}
-
-void log(string message)
-{
-    cout << message << endl;
-}
-
-void log(string message, string message_to)
-{
-    cout << message << endl;
-    cout << message_to << endl;
-}
-
-Russia Goida()
-{
-    char goida[10] = "Goiiiiida";
-    return &goida;
-}
-
+extern bool check;
+extern string message;
 
 int main(int args, char* argv[])
 {
-    cout << *Goida << endl;
+    startChat_defoult_up();
+    string(*action)(string message) = startChat_check(check);
+    cout << action(message) << endl;
+    startChat_defoult_down();
+
+    check = true;
+
+    startChat_defoult_up();
+    action = startChat_check(check);
+    cout << action(message) << endl;
+    startChat_defoult_down();
 }
