@@ -2,20 +2,25 @@
 #include "function.h"
 using namespace std;
 
-extern bool check;
-extern string message;
+void print(int* numbers, int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        cout << *(numbers+i) << " ";
+    }
+    cout << endl;
+}
 
 int main(int args, char* argv[])
 {
-    startChat_defoult_up();
-    string(*action)(string message) = startChat_check(check);
-    cout << action(message) << endl;
-    startChat_defoult_down();
+    int size = 10;
+    int *numbers = new int[size];
+    print(numbers, size);
 
-    check = true;
+    size = 20;
+    print(numbers, size);    
 
-    startChat_defoult_up();
-    action = startChat_check(check);
-    cout << action(message) << endl;
-    startChat_defoult_down();
+    delete [] numbers;
+    numbers = nullptr;
+    return 0;
 }
