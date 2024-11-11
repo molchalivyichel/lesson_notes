@@ -2,25 +2,24 @@
 #include "function.h"
 using namespace std;
 
-void print(int* numbers, int size)
+class Person
 {
-    for(int i = 0; i < size; i++)
+    private:
+        const string name;
+        int age;
+    public:
+        void print()
+        {
+            cout << name << " " << age << endl;
+        }
+    Person(string p_name, int p_age) : name(p_name), age(p_age)
     {
-        cout << *(numbers+i) << " ";
+        cout << "Create class" << endl;
     }
-    cout << endl;
-}
+};
 
 int main(int args, char* argv[])
 {
-    int size = 10;
-    int *numbers = new int[size];
-    print(numbers, size);
-
-    size = 20;
-    print(numbers, size);    
-
-    delete [] numbers;
-    numbers = nullptr;
-    return 0;
+    Person person("Dan", 9);
+    person.print();
 }
