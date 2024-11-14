@@ -67,6 +67,35 @@ void Person_lite::Start_message()
     cout << "Hi! I`m a " << name << endl;
 }
 
+class Auto
+{
+    friend void drive(const Auto&);
+    friend void setPrice(Auto&, unsigned);
+public:
+    Auto(std::string autoName, unsigned autoPrice) 
+    { 
+        name = autoName; 
+        price = autoPrice;
+    }
+    void print()
+    {
+        std::cout << name << " : " << price << std::endl;
+    }
+  
+private:
+    std::string name;   // название автомобиля
+    unsigned price;  // цена автомобиля
+};
+  
+void drive(const Auto &car) 
+{ 
+    std::cout << car.name << " is driven" << std::endl;
+}
+void setPrice(Auto &car, unsigned price)
+{
+    car.price = price;
+}
+
 int main(int args, char* argv[])
 {
     Person person("Dan", 9);
@@ -78,4 +107,11 @@ int main(int args, char* argv[])
     person_lite.editName("");
     person_lite.print();    
     person_lite.Start_message();
+
+    cout << "----------" << endl;
+
+    Auto car("Audi", 200);
+    drive(car);
+    setPrice(car, 8000);
+    car.print();
 }
